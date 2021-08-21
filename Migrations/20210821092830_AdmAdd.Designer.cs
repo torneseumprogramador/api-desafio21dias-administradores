@@ -9,8 +9,8 @@ using api_desafio21dias.Servicos;
 namespace api_desafio21dias.Migrations
 {
     [DbContext(typeof(DbContexto))]
-    [Migration("20210821091528_MateriaisAdd")]
-    partial class MateriaisAdd
+    [Migration("20210821092830_AdmAdd")]
+    partial class AdmAdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,7 +20,7 @@ namespace api_desafio21dias.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("api_desafio21dias.Models.Material", b =>
+            modelBuilder.Entity("api_desafio21dias.Models.Administrador", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,9 +28,11 @@ namespace api_desafio21dias.Migrations
                         .HasColumnName("id")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AlunoId")
-                        .HasColumnType("int")
-                        .HasColumnName("aluno_id");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)")
+                        .HasColumnName("email");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -38,9 +40,15 @@ namespace api_desafio21dias.Migrations
                         .HasColumnType("varchar(150)")
                         .HasColumnName("nome");
 
+                    b.Property<string>("Senha")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("senha");
+
                     b.HasKey("Id");
 
-                    b.ToTable("materiais");
+                    b.ToTable("administradores");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,29 +2,30 @@
 
 namespace api_desafio21dias.Migrations
 {
-    public partial class MateriaisAdd : Migration
+    public partial class AdmAdd : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "materiais",
+                name: "administradores",
                 columns: table => new
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false),
-                    aluno_id = table.Column<int>(type: "int", nullable: false)
+                    email = table.Column<string>(type: "varchar(150)", maxLength: 150, nullable: false),
+                    senha = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_materiais", x => x.id);
+                    table.PrimaryKey("PK_administradores", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "materiais");
+                name: "administradores");
         }
     }
 }

@@ -7,8 +7,8 @@ using System.Data.SqlClient;
 
 namespace api_desafio21dias.Models
 {
-  [Table("materiais")]
-  public partial class Material
+  [Table("administradores")]
+  public partial class Administrador
   {
     #region "Propriedades"
     [Key]
@@ -20,9 +20,15 @@ namespace api_desafio21dias.Models
     [MaxLength(150)]
     public string Nome { get; set; }
 
-    [Column("aluno_id")]
+    [Column("email", TypeName = "varchar")]
     [Required]
-    public int AlunoId { get; set; }
+    [MaxLength(150)]
+    public string Email { get; set; }
+
+    [Column("senha", TypeName = "varchar")]
+    [Required]
+    [MaxLength(10)]
+    public string Senha { get; set; }
 
     #endregion
 

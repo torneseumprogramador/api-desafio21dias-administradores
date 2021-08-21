@@ -8,6 +8,6 @@ namespace api_desafio21dias.Servicos
   {
     public DbContexto(DbContextOptions<DbContexto> options) : base(options) { }
 
-    public DbSet<Material> Materiais { get; set; }
+    public DbSet<Administrador> Administradores { get; set; }
   }
 }
