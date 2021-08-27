@@ -30,6 +30,9 @@ namespace api_desafio21dias.Models
     [MaxLength(10)]
     public string Senha { get; set; }
 
+    [NotMapped]
+    public string Permissao => "administrador";
+
     #endregion
 
     #region Metodos 
