@@ -10,19 +10,12 @@ using Microsoft.Extensions.Logging;
 namespace api_desafio21dias.Controllers
 {
     [ApiController]
-    [Route("/")]
-    public class HomeController : ControllerBase
+    [Route("/token")]
+    public class TokenController : ControllerBase
     {
-        [HttpGet]
-        [AllowAnonymous]
-        public HomeView Index()
-        {
-            return new HomeView();
+        [HttpHead]
+        public ActionResult Index() { 
+            return StatusCode(204);
         }
-
-        // public ActionResult Index()
-        // {
-        //     return Redirect("/swagger");
-        // }
     }
 }

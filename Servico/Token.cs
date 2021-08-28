@@ -23,7 +23,8 @@ namespace api_desafio21dias.Servico
 						new Claim(ClaimTypes.Name, adm.Nome),
 						new Claim(ClaimTypes.Role, adm.Permissao),
 					}),
-				Expires = DateTime.UtcNow.AddHours(expirationTime),
+				// Expires = DateTime.UtcNow.AddHours(expirationTime),
+				Expires = DateTime.UtcNow.AddMinutes(expirationTime),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 			};
 			var token = tokenHandler.CreateToken(tokenDescriptor);
